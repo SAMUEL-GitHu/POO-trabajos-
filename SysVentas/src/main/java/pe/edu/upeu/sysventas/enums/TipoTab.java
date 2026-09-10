@@ -1,6 +1,6 @@
 package pe.edu.upeu.sysventas.enums;
 
-public enum TipoTap {
+public enum TipoTab {
     INTERNO,
-    EXTERNO;
+    EXTERNO
 }

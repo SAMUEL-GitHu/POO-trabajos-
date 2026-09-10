@@ -1,11 +1,12 @@
 package pe.edu.upeu.sysventas.enums;
 
 public enum TipoProducto {
-    PRODUCTO("produccto"),
-    PREPARADO("preparado"),
-    SERVICIO("servicio");
+    PRODUCTO("Producto"),
+    PREPARADO("Preparado"),
+    SERVICIO("Servicio");
 
     String descripcion;
+
     TipoProducto(String descripcion){
         this.descripcion=descripcion;
     }

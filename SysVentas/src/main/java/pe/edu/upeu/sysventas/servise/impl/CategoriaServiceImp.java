@@ -1,10 +1,9 @@
-package pe.edu.upeu.sysventas.repository.servise.impl;
+package pe.edu.upeu.sysventas.servise.impl;
 
 import pe.edu.upeu.sysventas.model.Categoria;
 import pe.edu.upeu.sysventas.repository.CategoriaRepository;
 import pe.edu.upeu.sysventas.repository.ICrudGenericoRepository;
-import pe.edu.upeu.sysventas.repository.servise.ICategoriaService;
-import pe.edu.upeu.sysventas.repository.servise.ICrudGenericoService;
+import pe.edu.upeu.sysventas.servise.ICategoriaService;
 
 public class CategoriaServiceImp extends CrudGenericoServiceImp<Categoria, Long> implements ICategoriaService {
 

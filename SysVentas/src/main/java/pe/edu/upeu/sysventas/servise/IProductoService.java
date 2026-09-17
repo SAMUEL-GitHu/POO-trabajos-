@@ -1,4 +1,4 @@
-package pe.edu.upeu.sysventas.repository.servise;
+package pe.edu.upeu.sysventas.servise;
 
 import pe.edu.upeu.sysventas.model.Producto;
 

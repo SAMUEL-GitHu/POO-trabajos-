@@ -1,8 +1,8 @@
-package pe.edu.upeu.sysventas.repository.servise.impl;
+package pe.edu.upeu.sysventas.servise.impl;
 
 import pe.edu.upeu.sysventas.exception.ModelNotFoundException;
 import pe.edu.upeu.sysventas.repository.ICrudGenericoRepository;
-import pe.edu.upeu.sysventas.repository.servise.ICrudGenericoService;
+import pe.edu.upeu.sysventas.servise.ICrudGenericoService;
 
 import java.util.List;
 

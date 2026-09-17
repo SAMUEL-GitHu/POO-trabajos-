@@ -1,9 +1,9 @@
-package pe.edu.upeu.sysventas.repository.servise.impl;
+package pe.edu.upeu.sysventas.servise.impl;
 
 import pe.edu.upeu.sysventas.model.Producto;
 import pe.edu.upeu.sysventas.repository.ICrudGenericoRepository;
 import pe.edu.upeu.sysventas.repository.ProductoRepository;
-import pe.edu.upeu.sysventas.repository.servise.IProductoService;
+import pe.edu.upeu.sysventas.servise.IProductoService;
 
 public class ProductoServiceImp extends CrudGenericoServiceImp<Producto,Long> implements IProductoService {
 

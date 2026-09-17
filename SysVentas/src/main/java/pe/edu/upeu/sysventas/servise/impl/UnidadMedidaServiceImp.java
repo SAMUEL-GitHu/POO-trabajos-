@@ -1,9 +1,9 @@
-package pe.edu.upeu.sysventas.repository.servise.impl;
+package pe.edu.upeu.sysventas.servise.impl;
 
 import pe.edu.upeu.sysventas.model.UnidMedida;
 import pe.edu.upeu.sysventas.repository.ICrudGenericoRepository;
 import pe.edu.upeu.sysventas.repository.UnidadMedidaRepository;
-import pe.edu.upeu.sysventas.repository.servise.IUnidadMedidaService;
+import pe.edu.upeu.sysventas.servise.IUnidadMedidaService;
 
 public class UnidadMedidaServiceImp extends CrudGenericoServiceImp<UnidMedida,Long> implements IUnidadMedidaService {
 

@@ -4,11 +4,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.ProducctoController">
+<AnchorPane prefHeight="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.ProducctoController">
    <children>
-      <VBox layoutX="5.0" layoutY="5.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <VBox layoutX="5.0" layoutY="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
-            <AnchorPane prefWidth="200.0">
+            <AnchorPane maxWidth="1.7976931348623157E308">
                <children>
                   <Label layoutX="20.0" layoutY="14.0" prefHeight="18.0" prefWidth="119.0" text="gestion de productos" textFill="#359147" />
                   <Label layoutX="263.0" layoutY="52.0" text="filtrar productos" />
@@ -22,9 +22,9 @@
                   <Insets bottom="5.0" />
                </padding>
             </AnchorPane>
-            <AnchorPane maxHeight="1.7976931348623157E308" prefHeight="400.0" prefWidth="200.0">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <children>
-                  <HBox layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                  <HBox layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
                         <GridPane>
                           <columnConstraints>
@@ -49,8 +49,8 @@
                               <Label alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="127.0" text="                                         formulario de Registro" textAlignment="CENTER" GridPane.columnSpan="2147483647" />
                               <Label text="tipo preoducto" GridPane.rowIndex="1" />
                               <Label text="Nombre Producto" GridPane.rowIndex="2" />
-                              <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                              <TextField maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
                               <Label text="P. Unid" GridPane.rowIndex="3" />
                               <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label text="P. Unid Old" GridPane.columnIndex="2" GridPane.rowIndex="3" />
@@ -68,8 +68,26 @@
                               <Label text="Categoria" GridPane.rowIndex="7" />
                               <Label text="Unidad" GridPane.rowIndex="8" />
                               <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="8" />
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="9" />
                            </children>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
                         </GridPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TableView layoutX="6.0" layoutY="22.0" prefHeight="380.0" prefWidth="236.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="C1" />
+                                  <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </HBox>
                </children>

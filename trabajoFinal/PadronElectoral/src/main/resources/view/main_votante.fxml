@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="pe.edu.upeu.controller.VotanteController"
+            prefHeight="580.0" prefWidth="920.0">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="barra-busqueda">
+            <padding>
+                <Insets bottom="10"/>
+            </padding>
+            <Label text="Buscar por nombre o folio:"/>
+            <TextField fx:id="txtBusqueda" promptText="Escribe un nombre o un numero de folio..." prefWidth="320"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaVotantes">
+            <columns>
+                <TableColumn fx:id="colFolio" text="Folio" prefWidth="70"/>
+                <TableColumn fx:id="colNombre" text="Nombre completo" prefWidth="260"/>
+                <TableColumn fx:id="colRfc" text="RFC" prefWidth="150"/>
+                <TableColumn fx:id="colSeccion" text="Seccion electoral" prefWidth="150"/>
+                <TableColumn fx:id="colDistrito" text="Distrito" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="8">
+            <padding>
+                <Insets top="10"/>
+            </padding>
+
+            <GridPane hgap="10" vgap="8">
+                <Label text="Folio:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtFolio" editable="false" promptText="(automatico)"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Nombre completo:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtNombre" prefWidth="220" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="RFC:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtRfc" prefWidth="220" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Seccion electoral:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="txtSeccion" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Distrito:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtDistrito" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <padding>
+                    <Insets top="10"/>
+                </padding>
+                <Button text="Alta" onAction="#onAlta"/>
+                <Button text="Modificar" onAction="#onModificar"/>
+                <Button text="Baja" onAction="#onBaja"/>
+                <Button text="Consultar" onAction="#onConsultar"/>
+                <Button text="Limpiar formulario" onAction="#onLimpiar"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

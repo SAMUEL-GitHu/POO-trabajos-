@@ -1,0 +1,11 @@
+.barra-busqueda {
+    -fx-font-size: 13px;
+}
+
+.table-view {
+    -fx-font-size: 12.5px;
+}
+
+.button {
+    -fx-cursor: hand;
+}

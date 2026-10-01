@@ -65,6 +65,7 @@ public class AppContext {
     // El FXMLLoader los busca aquí a través de setControllerFactory().
     private void registrarControladores() {
         //registrar(LoginController.class, new LoginController(getBean(IUsuarioService.class)));
+        registrar(mainguiController.class, new mainguiController());
         registrar(ProducctoController.class,
                 new ProducctoController(
                         getBean(IMarcaService.class),

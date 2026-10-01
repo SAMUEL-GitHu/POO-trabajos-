@@ -16,7 +16,7 @@ public class SysVentas extends Application {
         Screen screen= Screen.getPrimary();
         AppContext appcontext=AppContext.getInstance();
         Rectangle2D dimen=Screen.getPrimary().getBounds();
-        FXMLLoader fxmlLoader = new FXMLLoader(SysVentas.class.getResource("/view/main_producto.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SysVentas.class.getResource("/view/maingui.fxml"));
         fxmlLoader.setControllerFactory(appcontext::getBean);
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());

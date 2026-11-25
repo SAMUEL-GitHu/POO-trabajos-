@@ -7,7 +7,7 @@ public interface ICrudGenericoRepository<T,ID> {
     T save(T entity);
     T update(T entity);
     Optional<T> findById(ID id);
-    List<T> findALL();
+    List<T> findAll();
     void deleteById(ID id);
-    boolean existById(ID id);
+    boolean existsById(ID id);
 }

@@ -79,5 +79,17 @@
     -fx-background-color: #ffcd39;
 }
 
+/* Contenedor principal */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Texto de bienvenida */
+#welcomeText {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #cf84a5;
+}
 
 

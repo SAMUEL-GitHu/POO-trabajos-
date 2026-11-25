@@ -3,14 +3,11 @@ package pe.edu.upeu.sysventas.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-
 public class ComboBoxOption {
-
     String key;
     String value;
 

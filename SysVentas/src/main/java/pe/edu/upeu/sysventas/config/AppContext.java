@@ -2,14 +2,8 @@ package pe.edu.upeu.sysventas.config;
 
 import pe.edu.upeu.sysventas.controller.*;
 import pe.edu.upeu.sysventas.repository.*;
-import pe.edu.upeu.sysventas.servise.ICategoriaService;
-import pe.edu.upeu.sysventas.servise.IMarcaService;
-import pe.edu.upeu.sysventas.servise.IProductoService;
-import pe.edu.upeu.sysventas.servise.IUnidadMedidaService;
-import pe.edu.upeu.sysventas.servise.impl.CategoriaServiceImp;
-import pe.edu.upeu.sysventas.servise.impl.MarcaServiceImp;
-import pe.edu.upeu.sysventas.servise.impl.ProductoServiceImp;
-import pe.edu.upeu.sysventas.servise.impl.UnidadMedidaServiceImp;
+import pe.edu.upeu.sysventas.service.*;
+import pe.edu.upeu.sysventas.service.impl.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +39,8 @@ public class AppContext {
         registrar(UnidadMedidaRepository.class,  new UnidadMedidaRepository());
         registrar(ProductoRepository.class,      new ProductoRepository());
 
+        registrar(UsuarioRepository.class, new UsuarioRepository());
+
     }
 
     // CAPA 2 — SERVICIOS
@@ -54,9 +50,10 @@ public class AppContext {
 
         registrar(ICategoriaService.class,    new CategoriaServiceImp(   getBean(CategoriaRepository.class)));
         registrar(IMarcaService.class,        new MarcaServiceImp(       getBean(MarcaRepository.class)));
-        registrar(IProductoService.class,     new ProductoServiceImp( getBean(ProductoRepository.class)));
+        registrar(IProductoService.class,     new ProductoServiceImp(    getBean(ProductoRepository.class)));
         registrar(IUnidadMedidaService.class, new UnidadMedidaServiceImp(getBean(UnidadMedidaRepository.class)));
 
+        registrar(IUsuarioService.class, new UsuarioServiceImp(getBean(UsuarioRepository.class)));
 
     }
 
@@ -65,14 +62,17 @@ public class AppContext {
     // El FXMLLoader los busca aquí a través de setControllerFactory().
     private void registrarControladores() {
         //registrar(LoginController.class, new LoginController(getBean(IUsuarioService.class)));
-        registrar(mainguiController.class, new mainguiController());
-        registrar(ProducctoController.class,
-                new ProducctoController(
+        registrar(MainguiController.class, new MainguiController(getBean(IMenuMenuItemDao.class)));
+        registrar(ProductoController.class,
+                new ProductoController(
                         getBean(IMarcaService.class),
                         getBean(ICategoriaService.class),
                         getBean(IProductoService.class),
                         getBean(IUnidadMedidaService.class)));
 
+        registrar(LoginController.class, new LoginController(getBean(IUsuarioService.class)));
+
+        registrar(IMenuMenuItemDao.class,new MenuMenuItemDaoImp());
     }
 
     // API del contenedor — estos dos métodos son todo lo que hace la DI

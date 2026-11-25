@@ -1,0 +1,8 @@
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+
+# Base de datos H2 local (se regenera al primer arranque)
+data/

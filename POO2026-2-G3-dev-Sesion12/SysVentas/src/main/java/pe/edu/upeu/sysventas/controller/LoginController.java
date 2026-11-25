@@ -1,0 +1,103 @@
+package pe.edu.upeu.sysventas.controller;
+
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import lombok.RequiredArgsConstructor;
+import pe.edu.upeu.sysventas.SysVentas;
+import pe.edu.upeu.sysventas.components.StageManager;
+import pe.edu.upeu.sysventas.config.AppContext;
+import pe.edu.upeu.sysventas.dto.SessionManager;
+import pe.edu.upeu.sysventas.model.Usuario;
+import pe.edu.upeu.sysventas.service.IUsuarioService;
+
+@RequiredArgsConstructor
+public class LoginController {
+
+    final private IUsuarioService us;
+
+    @FXML
+    TextField txtUsuario;
+
+    @FXML
+    PasswordField txtClave;
+
+    @FXML
+    public void login(ActionEvent e){
+        // Rubrica 5: validar los campos y mostrar el resultado de la accion.
+        // Antes, si las credenciales fallaban, solo se escribia en la consola
+        // y el usuario no se enteraba de nada.
+        String usuario = txtUsuario.getText() == null ? "" : txtUsuario.getText().trim();
+        String clave = txtClave.getText() == null ? "" : txtClave.getText();
+        if (usuario.isEmpty() || clave.isEmpty()) {
+            mostrarAlerta("Faltan datos",
+                    "Escribe el usuario y la clave para ingresar.");
+            return;
+        }
+        us.loginUsuario(usuario, clave).ifPresentOrElse(
+                usuarioLogueado -> { abrirPantalla(e, usuarioLogueado); },
+                () -> mostrarAlerta("Credenciales incorrectas",
+                        "El usuario o la clave no son correctos. Vuelve a intentarlo.")
+        );
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+    @FXML
+    public void logout(ActionEvent e){
+        Platform.exit();
+        System.exit(0);
+    }
+
+
+    public void abrirPantalla(ActionEvent e, Usuario u){
+        try {
+
+            SessionManager.getInstance().setUserPerfil(u.getIdPerfil().getNombre());
+            SessionManager.getInstance().setUserName(u.getUsuario());
+            SessionManager.getInstance().setUserId(u.getIdUsuario());
+
+            Screen screen=Screen.getPrimary();
+
+            AppContext appContext=AppContext.getInstance();
+            Rectangle2D dimen=screen.getBounds();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(SysVentas.class.getResource("/view/maingui.fxml"));
+            fxmlLoader.setControllerFactory(appContext::getBean);
+            Scene scene = new Scene(fxmlLoader.load(), dimen.getWidth(), dimen.getHeight()-30);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+
+            Stage stage= (Stage) ((Node)e.getSource()).getScene().getWindow();
+            StageManager.setPrimaryStage(stage);
+            stage.setTitle("SysVentas Principal!");
+            stage.setX(dimen.getMinX());
+            stage.setY(dimen.getMinY());
+
+            stage.setScene(scene);
+            stage.setResizable(true);
+            stage.show();
+
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+
+    }
+
+
+}
